@@ -20,7 +20,7 @@ COPY deploy/server.cjs ./server.cjs
 COPY deploy/web ./dist
 
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=80
 ENV ENABLE_TERMINAL=false
 
 EXPOSE 3000
