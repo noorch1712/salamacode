@@ -1,0 +1,7 @@
+{
+  "name": "SalamaCode",
+  "description": "Local-First AI Coding Agent & IDE with Multi-Provider Orchestration (Gemini, OpenRouter, Custom Local LLMs), Smart Router, Supabase Cloud Metadata Sync, Multi-Device and User Management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
