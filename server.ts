@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs/promises';
-import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Type } from '@google/genai';
 import { validateWorkspacePath } from './electron/security/pathGuard.js';
 import { evaluateCommandSecurity } from './electron/security/commandGuard.js';
@@ -13,7 +12,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT || process.env.SERVER_PORT) || 3000;
 const app = express();
 
 app.use(express.json({ limit: '20mb' }));
@@ -1443,6 +1442,7 @@ Active Workspace: "${workspacePath || 'No workspace selected'}"`;
 
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
